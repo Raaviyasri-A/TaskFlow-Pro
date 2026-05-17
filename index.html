@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TaskFlow Pro</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <h1>TaskFlow Pro</h1>
+
+    <form action="/add" method="POST">
+
+        <input type="text"
+               name="title"
+               placeholder="Enter Task"
+               required>
+
+        <select name="priority">
+
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+
+        </select>
+
+        <input type="date"
+               name="due_date"
+               required>
+
+        <button type="submit">
+            Add Task
+        </button>
+
+    </form>
+
+    <div class="analytics">
+
+        <h2>Analytics</h2>
+
+        <p>Total Tasks: {{ total }}</p>
+
+        <p>Completed Tasks: {{ completed }}</p>
+
+        <p>Pending Tasks: {{ pending }}</p>
+
+        <p>Productivity: {{ productivity }}%</p>
+
+    </div>
+
+    <h2>Task List</h2>
+
+   {% for task in tasks %}
+
+<div class="task-card {% if task.completed %}completed{% endif %}">
+
+    <h3>{{ task.title }}</h3>
+
+    <p>
+        Priority: {{ task.priority }}
+    </p>
+
+    <p>
+        Due Date: {{ task.due_date }}
+    </p>
+
+    <p>
+        Status:
+
+        {% if task.completed %}
+            Completed
+        {% else %}
+            Pending
+        {% endif %}
+    </p>
+
+    <a href="/complete/{{ loop.index0 }}">
+        Complete
+    </a>
+
+    <a href="/delete/{{ loop.index0 }}">
+        Delete
+    </a>
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Python Assignment",
+        "priority": "High",
+        "due_date": "2026-05-18",
+        "completed": true
+    },
+    {
+        "title": "cloud assignment",
+        "priority": "High",
+        "due_date": "2026-05-16",
+        "completed": true
+    },
+    {
+        "title": "cloud assignment",
+        "priority": "High",
+        "due_date": "2026-05-16",
+        "completed": false
+    }
+]
